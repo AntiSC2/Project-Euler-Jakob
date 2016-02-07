@@ -22,29 +22,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 #include <iostream>
-#include <cmath>
 
-long long int factorial(long long int n)
+long long int BinomialCoefficient(int n, int k)
 {
-	long long int i = n - 1;
-	while (i > 1) {
-		n *= i--;
-	}
-	return n;
+        if (k < 0 || k > n)
+                return 0;
+        if (k == 0 || k == n)
+                return 1;
+        if (n - k < k)
+                k = n - k;
+        long long int c = 1;
+        for (int i = 0; i < k; i++) {
+                c = c * (n - i) / (i + 1);
+        }
+        return c;
 }
 
-long long int paths()
+long long int Paths(int x, int y)
 {
-	long long int n;
-	long long int k;
-	while (k > 1 && k < n - 1) {
-		
-	}
-	return n / factorial(20);
+        return BinomialCoefficient(x + y, x);
 }
 
 int main()
 {
-	std::cout << paths() << std::endl;	
+	std::cout << Paths(20, 20) << std::endl;
 	return 0;
 }
