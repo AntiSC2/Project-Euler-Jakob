@@ -22,13 +22,29 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
 
-fn main() 
+fn main()
 {
-        let mut sum = 0;
-        for i in 1..1000 {
-                if i % 3 == 0 || i % 5 == 0 {
-                        sum += i;
+        let mut sum = 2;
+        let mut x = 2;
+        let mut y = 1;
+        
+        loop {
+                if x < 4000000 && y < 4000000 {
+                        if x < y {
+                                x += y;
+                                if x % 2 == 0 {
+                                        sum += x;
+                                }
+                        } else {
+                                y += x;
+                                if y % 2 == 0 {
+                                        sum += y;
+                                }
+                        }
+                } else {
+                        break;
                 }
         }
-        println!("Sum: {}", sum);
+
+        println!("Answer: {}", sum);
 }
